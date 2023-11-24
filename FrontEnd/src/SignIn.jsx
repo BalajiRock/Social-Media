@@ -3,7 +3,7 @@ import './SignIn.css'
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-function SignIn() {
+function SignIn(props) {
 
     const [values, setValues] = useState({
         UserName: '',
@@ -17,7 +17,7 @@ function SignIn() {
         axios.post('http://localhost:3000/',values)
         .then(res => {
             if (res.data === "Success"){
-                navigate('/Home');
+                navigate('/Home',{state:{id:1,name:values.UserName}});
 
             }
             else{

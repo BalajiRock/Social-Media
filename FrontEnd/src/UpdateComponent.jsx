@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from "react";
 class Post extends React.Component {
   constructor(props) {
@@ -5,27 +6,45 @@ class Post extends React.Component {
     this.state = {
       likes: props.likes,
       comments: props.comments,
-      liked : false
+      liked : false,
+      postId:props.PostId
       // post :
     };
   }
   // parseInt(this.props.likes, 10)+1
   changeColor = () => {
     console.log("called ")
-    if( this.liked ===  false)
+    if( this.liked ==  true)
     {
-      console.log("liked")
-      this.setState({likes:"liked" });
-      this.liked = true
+      console.log("removed liked")
+      this.setState({likes: parseInt(this.props.likes, 10)});
+      this.liked = false
+      
     }
     
     else
     {
-      console.log("removed liked")
-      this.setState({likes: "removed like"});
-      this.liked = false
       console.log("reached")
+      console.log("liked")
+      this.setState({likes: parseInt(this.props.likes, 10)+1});
+      this.liked = true
     }
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    
+    axios.post('http://localhost:3000/GetLikes',this.PostId)
+        .then(res => {
+            if (res.data === "Success"){
+                // navigate('/Home',{state:{id:1,name:values.UserName}});
+
+            }
+            else{
+                alert("failed to login")
+            }}
+            )
+        .catch(err => console.log(err));
+    return {favoritecolor: props.favcol };
   }
   render() {
     return (
@@ -38,7 +57,7 @@ class Post extends React.Component {
         </p>
         <button
           type="button"
-          onClick={this.changeColor()}
+          onClick={this.changeColor}
         >like madu</button>
       </div>
     );

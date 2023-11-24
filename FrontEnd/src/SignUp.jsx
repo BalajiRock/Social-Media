@@ -19,8 +19,6 @@ function SignUp() {
         axios.post('http://localhost:3000/SignUp',values)
         .then(res =>navigate('/'))
         .catch(err => console.log(err));
-        ;
-
     }
     const handleInput = (event)=>{
         setValues(prev=>({...prev,[event.target.name]:[event.target.value]}))

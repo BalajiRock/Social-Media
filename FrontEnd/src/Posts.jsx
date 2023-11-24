@@ -1,3 +1,21 @@
+// const [posts,setposts] = useState([]);
+  
+  
+  
+// useEffect(()=>{
+//   console.log("called")
+//   axios.get('http://localhost:3000/GetPosts')
+//   .then(res => {
+//     setposts(res.data)
+//     console.log(res.data[0])
+//     console.log(res.data.length)
+//   })
+//   .catch(err =>console.log(err))
+// },[])
+
+
+
+
 const Posts=[
     {
         comments:"Noiceee madu",
