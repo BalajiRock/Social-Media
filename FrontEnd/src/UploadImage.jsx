@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
+import {Button, Breadcrumb, Card, Form, Container, Row, Col, Image,Nav,Navbar, Tab, Tabs, NavItem} from 'react-bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
@@ -46,12 +48,18 @@ function UploadImage(props) {
     }
 
   return (
-    <div >
-      <input type="file" onChange={handleFile} />
-      <button onClick={handleUpload}>Upload</button>
-      <h1> Hello! {UserName}</h1>
-      {}
-      <img src={data} alt="not able to load" style={{height:"300px"}}/>
+    <div style={{paddingTop:0,margin:0,height:"300px",width:"1000px"}}  >
+    <header className="App-header" style={{paddingTop:0,margin:0}}>
+      <input type="file" onChange={handleFile} style={{borderRadius:"10px"}}/>
+    <div style={{ height:"600px",borderRadius:"20px",padding:0, margin:0}} >
+      <Button onClick={handleUpload}>Upload</Button>
+    <Card className ="mb-3" style={{color: "#000", alignSelf:"right"}}>
+    <img src={data} alt="not able to load" style={{width:"150px", height:"150px",borderRadius:"20px",}}/>
+         </Card>
+    </div>
+
+      
+    </header>
     </div>
   )
 }

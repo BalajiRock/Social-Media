@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import './SignIn.css'
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import {Button, Breadcrumb, Card, Form, Container, Row, Col, Image,Nav,Navbar, Tab, Tabs, NavItem} from 'react-bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function SignIn(props) {
 
@@ -33,23 +35,25 @@ function SignIn(props) {
     console.log(values.UserName)
 
     return (
+
         <div className="main">
+            <header className='App-header'>
             <div className="outer">
                 <form action="" onSubmit={handleSubmit}>
-                    <div className="credentials">
-                        <input type='text' name='UserName' value={values.UserName} onChange={handleInput} placeholder='User Name' />
+                    <div className="credentials" style={{padding:"15px"}}>
+                        <input type='text' name='UserName' value={values.UserName} onChange={handleInput} placeholder='User Name' style={{borderRadius:"10px"}} />
                     </div>
-                    <div className="credentials">
-                        <input type='password' name='Password' value={values.Password} onChange={handleInput} placeholder='Password' />
+                    <div className="credentials" style={{padding:"15px"}}>
+                        <input type='password' name='Password' value={values.Password} onChange={handleInput} placeholder='Password'  style={{borderRadius:"10px"}}/>
                     </div>
-                    <button type='submit' className="btn">Sign In</button>
+                    <Button type='submit' className="btn">Sign In</Button>
 
                 </form>
             </div>
             <div>
-                <Link to="/SignUp"> Sign Up</Link>
-                <Link to="/">Forgot Password?</Link>
+                <Link to="/SignUp" style={{textDecoration:"none"}}> Sign Up</Link>
             </div>
+            </header>
         </div>
     );
 }

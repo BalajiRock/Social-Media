@@ -153,11 +153,22 @@ app.post('/GetUserPosts',(req,res)=>{
           }
         });
       });
+app.post('/GetUserinfo',(req,res)=>{
+    const UserName = req.body
+    console.log("madu madu",req.body)
+    const sql = 'SELECT * FROM user_profile WHERE user_id = (SELECT Uses_id FROM user WHERE user_name =?)';
+    db.query(sql,[UserName],(error,result) =>{
+        if (error) {
+            console.error(error);
+            res.status(500).send('Error retriving image.');
+          } else {
+            return res.json(result)
+          }
+        });
+      });
 app.post('/AddLike',(req,res)=>{
     const PostId = req.body
     console.log("add",req.body)
-    // console.log(req.body[0])
-    // console.log(req.body[1])
     const sql = 'INSERT INTO LIKES (Postid,UserId) values(?,(SELECT USES_ID FROM USER WHERE USER_NAME = ?))';
     db.query(sql,[req.body[0],req.body[1]],(error,result) =>{
         if (error) {

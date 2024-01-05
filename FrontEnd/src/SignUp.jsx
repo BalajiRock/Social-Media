@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import {Button, Breadcrumb, Card, Form, Container, Row, Col, Image,Nav,Navbar, Tab, Tabs, NavItem} from 'react-bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function SignUp() {
 
@@ -27,35 +29,36 @@ function SignUp() {
 
     return (
         <div className='main'>
+            <header className='App-header'>
             <div className="outer">
                 <form action="" onSubmit={handleSubmit}>
-                    <div className="FullName">
-                        <input type="text" name='FullName' value={values.FullName} onChange={handleInput} placeholder='Full Name' />
+                    <div className="FullName" style={{padding:"10px"}} >
+                        <input type="text" name='FullName' value={values.FullName} onChange={handleInput} placeholder='Full Name' style={{borderRadius:"10px"}} />
                     </div>
-                    <div className="PhoneNo">
-                        <input type="text" name='PhoneNo' value={values.PhoneNo} onChange={handleInput} placeholder='Phone Number' />
+                    <div className="PhoneNo" style={{padding:"10px"}} >
+                        <input type="text" name='PhoneNo' value={values.PhoneNo} onChange={handleInput} placeholder='Phone Number' style={{borderRadius:"10px"}} />
                     </div>
-                    <div className="DOB">
-                        <input type="date" name='DOB' value={values.DOB} onChange={handleInput} placeholder='Date of Birth' />
+                    <div className="DOB" style={{padding:"10px"}} >
+                        <input type="date" name='DOB' value={values.DOB} onChange={handleInput} placeholder='Date of  Birth' style={{borderRadius:"10px"}}/>
                     </div>
-                    <div className="Email">
-                        <input type="text" name='Email' value={values.Email} onChange={handleInput} placeholder='Email' />
+                    <div className="Email" style={{padding:"10px"}} >
+                        <input type="text" name='Email' value={values.Email} onChange={handleInput} placeholder='Email'  style={{borderRadius:"10px"}}/>
                     </div>
-                    <div className="UsesName">
-                        <input type="text" name='UserName' value={values.UserName} onChange={handleInput} placeholder='User Name' />
+                    <div className="UsesName" style={{padding:"10px"}} >
+                        <input type="text" name='UserName' value={values.UserName} onChange={handleInput} placeholder='User Name' style={{borderRadius:"10px"}} />
                     </div>
-                    <div className="Password">
-                        <input type="Pass" name='Password' value={values.Password} onChange={handleInput} placeholder='Password' />
+                    <div className="Password" style={{padding:"10px"}} >
+                        <input type="Pass" name='Password' value={values.Password} onChange={handleInput} placeholder='Password'  style={{borderRadius:"10px"}}/>
                     </div>
-                    <button type='submit'>Sign Up</button>
+                    <Button type='submit'>Sign Up</Button>
                     <div>
-                        <Link to="/"> Sign In</Link>
+                        <Link to="/" style={{textDecoration:"none"}}> Sign In</Link>
                     </div>
 
                 </form>
 
             </div>
-
+            </header>
         </div>
     )
 }
